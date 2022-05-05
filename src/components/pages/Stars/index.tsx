@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { UserContext } from '../../../context/userContext';
 
 function Stars() {
+	const user = useContext(UserContext);
+
 	return (
 		<header>
-			<p>oi sou o staers</p>
+			<p>oi sou a pagina de stars {user}</p>
 		</header>
 	);
 }

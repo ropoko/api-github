@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useContext, useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -12,36 +11,25 @@ import {
 import Home from './components/pages/Home';
 import Details from './components/pages/Details';
 import Stars from './components/pages/Stars';
+import { UserContext } from './context/userContext';
 
 function App() {
-	const [message, setMessage] = useState('');
-
-	useEffect(() => {
-		axios
-			.get('https://api.github.com/zen')
-			.then((res) => {
-				const { data } = res;
-				setMessage(data);
-			});
-	});
+	const user = useContext(UserContext);
 
 	return (
-		<div className="container">
-			<Header />
-			<Router>
-				<Routes>
-					<Route path="/" element={<Home />}>
-					</Route>
-					<Route path="/details" element={<Details />}>
-					</Route>
-					<Route path="/stars" element={<Stars />}>
-					</Route>
-				</Routes>
-			</Router>
-			
-			<h1>{message}</h1>
-			<Footer />
-		</div>
+		<UserContext.Provider value={user}>
+			<div className="container">
+				<Header />
+				<Router>
+					<Routes>
+						<Route path="/" element={<Home />}></Route>
+						<Route path="/details" element={<Details />}></Route>
+						<Route path="/stars" element={<Stars />}></Route>
+					</Routes>
+				</Router>
+				<Footer />
+			</div>
+		</UserContext.Provider>
 	);
 }
 
