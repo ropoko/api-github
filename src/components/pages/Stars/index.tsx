@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import { UserContext } from '../../../context/userContext';
 
 function Stars() {
-	const user = useContext(UserContext);
+	const { username } = useContext(UserContext);
 
 	return (
 		<header>
-			<p>oi sou a pagina de stars {user}</p>
+			<p>oi sou a pagina de stars - {username}</p>
 		</header>
 	);
 }

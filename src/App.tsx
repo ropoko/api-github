@@ -11,13 +11,13 @@ import {
 import Home from './components/pages/Home';
 import Details from './components/pages/Details';
 import Stars from './components/pages/Stars';
-import { UserContext } from './context/userContext';
+import { UserContext, UserContextProvider } from './context/userContext';
 
 function App() {
-	const user = useContext(UserContext);
+	const [ username, setUsername ] = useState('');
 
 	return (
-		<UserContext.Provider value={user}>
+		<UserContextProvider>
 			<div className="container">
 				<Header />
 				<Router>
@@ -29,7 +29,7 @@ function App() {
 				</Router>
 				<Footer />
 			</div>
-		</UserContext.Provider>
+		</UserContextProvider>
 	);
 }
 
