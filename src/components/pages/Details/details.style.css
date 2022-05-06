@@ -1,0 +1,8 @@
+.repos {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
+	align-items: center;
+	background: var(--background);
+	padding: 0.6rem;
+}

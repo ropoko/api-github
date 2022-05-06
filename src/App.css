@@ -11,6 +11,10 @@
 	--link: rgb(230, 247, 80);
 	--link-hover: rgb(181, 199, 18);
 	--border: rgb(36, 33, 33);
+	--card-title: #58a6ff;
+	--card-description: #8b949e;
+	--card-info: #f1f1f1;
+	--card-border: #b9b9b9;
 }
 
 a {

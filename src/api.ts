@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 async function Api(resource: string, username: string): Promise<any> {
 	const response = await axios({
@@ -8,6 +8,12 @@ async function Api(resource: string, username: string): Promise<any> {
 	}).then(r => {
 		const { data } = r;
 		return data;
+	}).catch((err: AxiosError) => {
+		const { status } = err;
+		const obj: any = {
+			status
+		};
+		return obj;
 	});
 
 	return response;

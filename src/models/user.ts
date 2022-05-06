@@ -7,4 +7,5 @@ export interface User {
 	followers: number;
 	following: number;
 	html_url: string;
+	status?: string | undefined;
 }
