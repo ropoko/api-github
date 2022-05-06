@@ -1,5 +1,7 @@
 # Iniciando o projeto
 
+[Teste a versão live](https://api-github-alpha.vercel.app/)
+
 ## Instale as dependências
 ```bash
 	$ yarn
