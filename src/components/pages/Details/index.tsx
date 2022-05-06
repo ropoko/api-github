@@ -5,17 +5,22 @@ import { getResource } from '../../../models/resource';
 import { Repo as RepoModel } from '../../../models/repo';
 import Repo from '../../Repo';
 import './details.style.css';
+import Loading from '../../Loading';
 
 function Details() {
 	const { username } = useContext(UserContext);
 	const [response, setResponse] = useState([] as RepoModel[]);
 
+	const [loading, setLoading] = useState(true);
+
 	useEffect(() => {
 		if (username === '') return;
+		setLoading(true);
 		const timeOutId = setTimeout(() => {
 
 			Api(getResource('repositories'), username).then(response => {
 				setResponse(response);
+				setLoading(false);
 			});
 
 		}, 2000);
@@ -24,9 +29,11 @@ function Details() {
 
 	return (
 		<main className='repos'>
-			{response.map((repo) => (
-				<Repo key={repo.name} repo={repo} />
-			))}
+			{ loading
+				? <Loading />
+				: response.map((repo) => (
+					<Repo key={repo.name} repo={repo} />
+				))}
 		</main>
 	);
 }

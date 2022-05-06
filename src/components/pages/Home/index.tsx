@@ -4,12 +4,14 @@ import { UserContext } from '../../../context/userContext';
 import { getResource } from '../../../models/resource';
 import { User } from '../../../models/user';
 import InfoUser from '../../InfoUser';
+import Loading from '../../Loading';
 import './home.style.css';
 
 function Home() {
 	const [user, setUser] = useState('');
 	const { setUsername } = useContext(UserContext);
 
+	const [loading, setLoading] = useState(false);
 	const [response, setResponse] = useState({} as User);
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -25,14 +27,16 @@ function Home() {
 
 	useEffect(() => {
 		if (user === '') return;
+		setLoading(true);
 		const timeOutId = setTimeout(() => {
-
 			Api(getResource('user'), user).then(response => {
 				setResponse(response);
+				setLoading(false);
 			});
-
 		}, 2000);
-		return () => clearTimeout(timeOutId);
+		return () => {
+			clearTimeout(timeOutId);
+		};
 	}, [user]);
 
 	return (
@@ -46,9 +50,15 @@ function Home() {
 					</button>
 				</div>
 			</form>
-			<section className='response'>
-				<InfoUser user={response}/>
-			</section>
+			{
+				loading
+					? <Loading /> 
+					: <>
+						<section className='response'>
+							<InfoUser user={response}/>
+						</section>
+					</>
+			}
 		</main>
 	);
 }
