@@ -1,6 +1,7 @@
 .container {
-	display: grid;
-	grid-template-columns: 0.8fr 1fr;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 	align-items: center;
 	background: var(--background-page);
 }
@@ -14,7 +15,7 @@
 }
 
 .container form {
-	margin-left: 1rem;
+	margin: 2rem 0 2rem 1rem;
 }
 
 .container form .label-search {
