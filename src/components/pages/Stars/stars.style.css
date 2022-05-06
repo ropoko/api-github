@@ -1,3 +1,4 @@
 .stars {
 	height: 80vh;
+	background: var(--background);
 }

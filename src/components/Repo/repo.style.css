@@ -7,6 +7,7 @@ div.card {
 	border: 1px solid var(--card-border);
 	border-radius: 1rem;
 	height: 8rem;
+	overflow: hidden;
 }
 
 .card .header-repo {
@@ -32,6 +33,7 @@ div.card {
 	hyphens: auto;
 	word-break: break-word;
 	text-overflow: ellipsis;
+	height: 2.4rem;
 }
 
 .card .info-repo {
