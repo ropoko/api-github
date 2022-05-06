@@ -1,0 +1,31 @@
+header {
+	background: var(--background);
+	display: flex;
+	align-items: center;
+	padding: 1rem;
+}
+
+header :is(.menu, .logo) {
+	display: flex;
+	align-items: center;
+}
+
+header .logo {
+	color: var(--text);
+}
+
+header .logo img {
+	width: 3rem;
+	height: 3rem;
+	margin: 0 1rem;
+}
+
+header .menu {
+	margin: auto;
+	justify-content: space-evenly;
+	width: 35%;
+}
+
+header .menu a {
+	font-size: 1.1rem;
+}

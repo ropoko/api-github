@@ -1,0 +1,16 @@
+:root {
+	--background: rgb(51, 51, 51);
+	--text: rgb(245, 245, 245);
+	--link: rgb(230, 247, 80);
+	--link-hover: rgb(181, 199, 18);
+}
+
+a {
+	color: var(--link);
+	text-decoration: none;
+	transition: color	.2s;
+}
+
+a:hover {
+	color: var(--link-hover);
+}

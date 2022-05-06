@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -11,23 +11,21 @@ import {
 import Home from './components/pages/Home';
 import Details from './components/pages/Details';
 import Stars from './components/pages/Stars';
-import { UserContext, UserContextProvider } from './context/userContext';
+import { UserContextProvider } from './context/userContext';
 
 function App() {
-	const [ username, setUsername ] = useState('');
-
 	return (
 		<UserContextProvider>
 			<div className="container">
-				<Header />
 				<Router>
+					<Header />
 					<Routes>
 						<Route path="/" element={<Home />}></Route>
 						<Route path="/details" element={<Details />}></Route>
 						<Route path="/stars" element={<Stars />}></Route>
 					</Routes>
+					<Footer />
 				</Router>
-				<Footer />
 			</div>
 		</UserContextProvider>
 	);
