@@ -2,16 +2,19 @@ import React, { useContext, useEffect, useState } from 'react';
 import Api from '../../../api';
 import { UserContext } from '../../../context/userContext';
 import { getResource } from '../../../models/resource';
+import './home.style.css';
 
 function Home() {
 	const [user, setUser] = useState('');
-	const { username, setUsername } = useContext(UserContext);
+	const { setUsername } = useContext(UserContext);
 
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const handleChange = (event: any) => {
 		setUser(event.target.value);
 		setUsername(event.target.value);
 	};
 
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const handleSubmit = (event: any) => {
 		event.preventDefault();
 	};
@@ -25,10 +28,15 @@ function Home() {
 	}, [user]);
 
 	return (
-		<main>
+		<main className='container'>
 			<form onSubmit={handleSubmit}>
-				<input type="text" value={user} onChange={handleChange} />
-				<button type='submit'> Pesquisar </button>
+				<label className='label-search' htmlFor="username">Digite o nome do usuário: </label>
+				<div className='search'>
+					<input id="username" type="text" value={user} onChange={handleChange} />
+					<button type='submit'> 
+						<img src="/icon-search.png" alt="search" />
+					</button>
+				</div>
 			</form>
 		</main>
 	);

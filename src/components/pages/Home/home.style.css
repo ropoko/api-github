@@ -1,0 +1,45 @@
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 80vh;
+	background: var(--background-page);
+}
+
+.container form .label-search {
+	display: block;
+	font-weight: 600;
+	margin: 0 0 10px 0;
+	color: var(--text);
+}
+
+.container form #username {
+	margin-left: 1.4rem;
+	padding: 0.4rem 1rem;
+  width: 18rem;
+	border-radius: 1rem;
+	border: 1px solid var(--border);
+	outline: none;
+}
+
+.container form .search {
+	display: flex;
+	align-items: center;
+}
+
+.container form button[type="submit"] {
+	background: transparent;
+	border: none;
+	margin-left: 10px;
+}
+
+.container form button[type="submit"]:hover {
+	border: 1px solid var(--text);
+    border-radius: 50%;
+    padding: 5px 6px 3px 6px;
+}
+
+.container form button[type="submit"] img {
+	width: 2rem;
+	height: 2rem;
+}
