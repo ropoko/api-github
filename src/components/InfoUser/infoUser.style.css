@@ -1,0 +1,39 @@
+.info {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.person {
+	display: flex;
+	align-items: center;
+	color: var(--text);
+}
+
+.person img {
+	width: 6rem;
+	height: 6rem;
+	border-radius: 15px;
+	margin-right: 1rem;
+}
+
+.person .about {
+	display: flex;
+	flex-direction: column;
+}
+
+.person .about .link-perfil {
+	margin-top: 1.5rem;
+}
+
+.info .statistics {
+	margin-top: 2rem;
+	display: flex;
+	align-items: flex-start;
+	color: var(--text);
+}
+
+.info .statistics .group {
+	margin: 5px 2rem;
+}

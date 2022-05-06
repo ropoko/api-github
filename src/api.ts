@@ -1,14 +1,16 @@
 import axios from 'axios';
 
 async function Api(resource: string, username: string): Promise<any> {
-	await axios({
+	const response = await axios({
 		baseURL: 'https://api.github.com/',
 		method: 'get',
 		url: `${resource.replace('.', username)}`
-	}).then(res => {
-		const { data } = res;
-		console.log(data);
+	}).then(r => {
+		const { data } = r;
+		return data;
 	});
+
+	return response;
 }
 
 export default Api;
